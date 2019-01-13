@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html>
+<title>Light Comet</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Favicon -->
+<link rel="icon"type="image/png" href="favicon-fighter-jet.ico">
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<!-- Font Awesome -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet"/>
+<!-- W3.CSS -->
+<link rel="stylesheet" href="w3.css">
+<!-- JS -->
+<script src="index.js"></script> 
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Open Sans", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+/* Full height image header */
+.bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("aurora.jpeg");
+    min-height: 100%;
+}
+.w3-bar .w3-button {
+    padding: 16px;
+}
+.w3-top {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    background-color: #f1f1f1;
+}
+/* The progress container (grey background) */
+.progress-container {
+    width: 100%;
+    height: 8px;
+    background: #ccc;
+}
+/* The progress bar (scroll indicator) */
+.progress-bar {
+    height: 8px;
+    background: #4caf50;
+    width: 0%;
+}
+</style>
+<body>
+    
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+        <div class="w3-bar w3-white w3-card" id="myNavbar">
+            <div class="progress-container">
+                <div class="progress-bar" id="myBar"></div>
+            </div> 
+            <a href="index" class="w3-bar-item w3-button w3-wide">Light Comet</a>
+            <!-- Right-sided navbar links -->
+            <div class="w3-right w3-hide-small">
+            <a href="converter" class="w3-bar-item w3-button"><i class ="fas fa-dollar-sign"></i> CONVERTER</a>
+            <a href="InitialD" class="w3-bar-item w3-button"><i class ="fas fa-car"></i> INITIAL D</a>
+            <a href="ascii" class="w3-bar-item w3-button"><i class ="fas fa-table"></i> ASCII TABLE</a>
+            <a href="index#about" class="w3-bar-item w3-button text-black"><i class="fas fa-info-circle"></i> ABOUT</a>
+            <a href="index#skills" class="w3-bar-item w3-button w3-text-black"><i class="fas fa-code"></i> SKILLS</a>
+            <a href="index#contact" class="w3-bar-item w3-button w3-text-black"><i class="far fa-envelope"></i> CONTACT</a>
+            </div>
+            <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+        
+            <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large" onclick="w3_open()" id="bars">
+            <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+            
+    <!-- Sidebar on small screens when clicking the menu icon -->
+    <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-right w3-hide-large" style="display:none;right:0" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">&#10006;&#xFE0E;</a>
+    <a href="converter" onclick="w3_close()"class="w3-bar-item w3-button">CONVERTER</a>
+    <a href="InitialD" onclick="w3_close()" class="w3-bar-item w3-button">INITIAL D</a>
+    <a href="ascii" onclick="w3_close()" class="w3-bar-item w3-button"> ASCII TABLE</a>
+    <a href="index#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+    <a href="index#skills" onclick="w3_close()" class="w3-bar-item w3-button">SKILLS</a>
+    <a href="index#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+    </nav>
+
+    <div class="w3-container" style="padding:80px 16px">
+    <h1 align="center" style="font-weight:bold">ASCII Table</h1>
+    <p align="center">For printable ASCII Codes ranging from dec 32 to 126, when being sorted alphabetically, will follow the ASCII sequence in the table where the lower decimal value will be sorted to the top.</p>
+        <div class="w3-center">
+            <button oninput="asciiConvert()"style="margin-bottom: 20px;" class="w3-btn w3-green"id="ASCIIbutton" style="margin-bottom:20px;">Show only printable ASCII Codes</button>
+        <form>
+            <input class="w3-center" oninput="asciiConvert()" id="asciiSearch" maxlength="1" placeholder="Enter the printable ASCII character" style="margin-bottom:20px" onkeypress="return event.keyCode != 13;">
+            <script>
+                var input = document.getElementById("asciiSearch")
+                input.setAttribute('size',input.getAttribute('placeholder').length);
+            </script>
+        </form>
+        </div>
+        <div id="ASCII" class="w3-responsive">
+
+        <table id="ASCIItable" class="w3-table-all">
+                <!-- <colgroup>
+                    <col span="5" width="100px">
+                    <col span="1" width="300px">
+                    <col span="1" width="100px">
+                </colgroup> -->
+
+        <tr>
+        <th class="w3-green">Decimal</th>
+        <th class="w3-green">Hexadecimal</th>
+        <th class="w3-green">Octal</th>
+        <th class="w3-green">Binary</th>
+        <th class="w3-green">Character</th>
+        <th class="w3-green">Meaning</th>
+        <th class="w3-green">URL</th>
+        </tr>
+        <tr class="non-print">
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>NUL</td>
+        <td>Null character</td>
+        <td><a href="https://en.wikipedia.org/wiki/Null_character" title="Null character">NUL</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>1</td>
+        <td>SOH</td>
+        <td>Start of heading</td>
+        <td><a href="https://en.wikipedia.org/wiki/Start_of_heading" title="Start of heading">SOH</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+        <td>10</td>
+        <td>STX</td>
+        <td>Start of text</td>
+        <td><a href="https://en.wikipedia.org/wiki/Start_of_text" title="Start of text">STX</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>3</td>
+        <td>3</td>
+        <td>3</td>
+        <td>11</td>
+        <td>ETX</td>
+        <td>End of text</td>
+        <td><a href="https://en.wikipedia.org/wiki/End_of_text" title="End of text">ETX</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>4</td>
+        <td>4</td>
+        <td>4</td>
+        <td>100</td>
+        <td>EOT</td>
+        <td>End of transmission character</td>
+        <td><a href="https://en.wikipedia.org/wiki/End_of_transmission_character" title="End of transmission character">EOT</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>5</td>
+        <td>5</td>
+        <td>5</td>
+        <td>101</td>
+        <td>ENQ</td>
+        <td>Enquiry character</td>
+        <td><a href="https://en.wikipedia.org/wiki/Enquiry_character" title="Enquiry character">ENQ</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>6</td>
+        <td>6</td>
+        <td>6</td>
+        <td>110</td>
+        <td>ACK</td>
+        <td>Acknowledge character</td>
+        <td><a href="https://en.wikipedia.org/wiki/Acknowledge_character" title="Acknowledge character">ACK</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>7</td>
+        <td>7</td>
+        <td>7</td>
+        <td>111</td>
+        <td>BEL</td>
+        <td>Bell character</td>
+        <td><a href="https://en.wikipedia.org/wiki/Bell_character" title="Bell character">BEL</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>8</td>
+        <td>8</td>
+        <td>10</td>
+        <td>1000</td>
+        <td>BS</td>
+        <td>Backspace</td>
+        <td><a href="https://en.wikipedia.org/wiki/Backspace" title=Backspace>BS</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>9</td>
+        <td>9</td>
+        <td>11</td>
+        <td>1001</td>
+        <td>HT</td>
+        <td>Horizontal tabulation</td>
+        <td><a href="https://en.wikipedia.org/wiki/Horizontal_tabulation" title="Horizontal tabulation">HT</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>10</td>
+        <td>A</td>
+        <td>12</td>
+        <td>1010</td>
+        <td>LF</td>
+        <td>Line feed</td>
+        <td><a href="https://en.wikipedia.org/wiki/Line_feed" title="Line feed">LF</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>11</td>
+        <td>B</td>
+        <td>13</td>
+        <td>1011</td>
+        <td>VT</td>
+        <td>Vertical tabulation</td>
+        <td><a href="https://en.wikipedia.org/wiki/Vertical_tabulation" title="Vertical tabulation">VT</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>12</td>
+        <td>C</td>
+        <td>14</td>
+        <td>1100</td>
+        <td>FF</td>
+        <td>Form feed</td>
+        <td><a href="https://en.wikipedia.org/wiki/Form_feed" title="Form feed">FF</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>13</td>
+        <td>D</td>
+        <td>15</td>
+        <td>1101</td>
+        <td>CR</td>
+        <td>Carriage return</td>
+        <td><a href="https://en.wikipedia.org/wiki/Carriage_return" title="Carriage return">CR</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>14</td>
+        <td>E</td>
+        <td>16</td>
+        <td>1110</td>
+        <td>SO</td>
+        <td>Shift out</td>
+        <td><a href="https://en.wikipedia.org/wiki/Shift_out" title="Shift out">SO</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>15</td>
+        <td>F</td>
+        <td>17</td>
+        <td>1111</td>
+        <td>SI</td>
+        <td>Shift in</td>
+        <td><a href="https://en.wikipedia.org/wiki/Shift_in" title="Shift in">SI</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>16</td>
+        <td>10</td>
+        <td>20</td>
+        <td>10000</td>
+        <td>DLE</td>
+        <td>Data link escape</td>
+        <td><a href="https://en.wikipedia.org/wiki/Data_link_escape" title="Data link escape">DLE</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>17</td>
+        <td>11</td>
+        <td>21</td>
+        <td>10001</td>
+        <td>DC1</td>
+        <td>Device Control 1</td>
+        <td><a href="https://en.wikipedia.org/wiki/Device_Control_1" title="Device Control 1">DC1</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>18</td>
+        <td>12</td>
+        <td>22</td>
+        <td>10010</td>
+        <td>DC2</td>
+        <td>Device Control 2</td>
+        <td><a href="https://en.wikipedia.org/wiki/Device_Control_2" title="Device Control 2">DC2</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>19</td>
+        <td>13</td>
+        <td>23</td>
+        <td>10011</td>
+        <td>DC3</td>
+        <td>Device Control 3</td>
+        <td><a href="https://en.wikipedia.org/wiki/Device_Control_3" title="Device Control 3">DC3</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>20</td>
+        <td>14</td>
+        <td>24</td>
+        <td>10100</td>
+        <td>DC4</td>
+        <td>Device Control 4</td>
+        <td><a href="https://en.wikipedia.org/wiki/Device_Control_4" title="Device Control 4">DC4</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>21</td>
+        <td>15</td>
+        <td>25</td>
+        <td>10101</td>
+        <td>NAK</td>
+        <td>Negative acknowledge character</td>
+        <td><a href="https://en.wikipedia.org/wiki/Negative_acknowledge_character" title="Negative acknowledge character">NAK</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>22</td>
+        <td>16</td>
+        <td>26</td>
+        <td>10110</td>
+        <td>SYN</td>
+        <td>Synchronous idle</td>
+        <td><a href="https://en.wikipedia.org/wiki/Synchronous_idle" title="Synchronous idle">SYN</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>23</td>
+        <td>17</td>
+        <td>27</td>
+        <td>10111</td>
+        <td>ETB</td>
+        <td>End of transmission block</td>
+        <td><a href="https://en.wikipedia.org/wiki/End_of_transmission_block" title="End of transmission block">ETB</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>24</td>
+        <td>18</td>
+        <td>30</td>
+        <td>11000</td>
+        <td>CAN</td>
+        <td>Cancel character</td>
+        <td><a href="https://en.wikipedia.org/wiki/Cancel_character" title="Cancel character">CAN</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>25</td>
+        <td>19</td>
+        <td>31</td>
+        <td>11001</td>
+        <td>EM</td>
+        <td>End of medium</td>
+        <td><a href="https://en.wikipedia.org/wiki/End_of_medium" title="End of medium">EM</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>26</td>
+        <td>1A</td>
+        <td>32</td>
+        <td>11010</td>
+        <td>SUB</td>
+        <td>Substitute character</td>
+        <td><a href="https://en.wikipedia.org/wiki/Substitute_character" title="Substitute character">SUB</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>27</td>
+        <td>1B</td>
+        <td>33</td>
+        <td>11011</td>
+        <td>ESC</td>
+        <td>Escape character</td>
+        <td><a href="https://en.wikipedia.org/wiki/Escape_character" title="Escape character">ESC</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>28</td>
+        <td>1C</td>
+        <td>34</td>
+        <td>11100</td>
+        <td>FS</td>
+        <td>File separator</td>
+        <td><a href="https://en.wikipedia.org/wiki/File_separator" title="File separator">FS</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>29</td>
+        <td>1D</td>
+        <td>35</td>
+        <td>11101</td>
+        <td>GS</td>
+        <td>Group separator</td>
+        <td><a href="https://en.wikipedia.org/wiki/Group_separator" title="Group separator">GS</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>30</td>
+        <td>1E</td>
+        <td>36</td>
+        <td>11110</td>
+        <td>RS</td>
+        <td>Record separator</td>
+        <td><a href="https://en.wikipedia.org/wiki/Record_separator" title="Record separator">RS</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>31</td>
+        <td>1F</td>
+        <td>37</td>
+        <td>11111</td>
+        <td>US</td>
+        <td>Unit separator</td>
+        <td><a href="https://en.wikipedia.org/wiki/Unit_separator" title="Unit separator">US</a></td>
+        </tr>
+        <tr>
+        <td>32</td>
+        <td>20</td>
+        <td>40</td>
+        <td>100000</td>
+        <td> </td>
+        <td>Space character</td>
+        <td><a href="https://en.wikipedia.org/wiki/Space_character" title="Space character">SP</a></td>
+        </tr>
+        <tr>
+        <td>33</td>
+        <td>21</td>
+        <td>41</td>
+        <td>100001</td>
+        <td>!</td>
+        <td>Exclamation mark</td>
+        <td><a href="https://en.wikipedia.org/wiki/Exclamation_mark" title="Exclamation mark">!</a></td>
+        </tr>
+        <tr>
+        <td>34</td>
+        <td>22</td>
+        <td>42</td>
+        <td>100010</td>
+        <td>&quot;</td>
+        <td>Quotation mark</td>
+        <td><a href="https://en.wikipedia.org/wiki/Quotation_mark" title="Quotation mark">&quot;</a></td>
+        </tr>
+        <tr>
+        <td>35</td>
+        <td>23</td>
+        <td>43</td>
+        <td>100011</td>
+        <td>#</td>
+        <td>Number sign</td>
+        <td><a href="https://en.wikipedia.org/wiki/Number_sign" title="Number sign">#</a></td>
+        </tr>
+        <tr>
+        <td>36</td>
+        <td>24</td>
+        <td>44</td>
+        <td>100100</td>
+        <td>$</td>
+        <td>Dollar sign</td>
+        <td><a href="https://en.wikipedia.org/wiki/Dollar_sign" title="Dollar sign">$</a></td>
+        </tr>
+        <tr>
+        <td>37</td>
+        <td>25</td>
+        <td>45</td>
+        <td>100101</td>
+        <td>%</td>
+        <td>Percent sign</td>
+        <td><a href="https://en.wikipedia.org/wiki/Percent_sign" title="Percent sign">%</a></td>
+        </tr>
+        <tr>
+        <td>38</td>
+        <td>26</td>
+        <td>46</td>
+        <td>100110</td>
+        <td>&amp;</td>
+        <td>Ampersand</td>
+        <td><a href="https://en.wikipedia.org/wiki/Ampersand" title=Ampersand>&amp;</a></td>
+        </tr>
+        <tr>
+        <td>39</td>
+        <td>27</td>
+        <td>47</td>
+        <td>100111</td>
+        <td>'</td>
+        <td>Apostrophe</td>
+        <td><a href="https://en.wikipedia.org/wiki/Apostrophe" title=Apostrophe>'</a></td>
+        </tr>
+        <tr>
+        <td>40</td>
+        <td>28</td>
+        <td>50</td>
+        <td>101000</td>
+        <td>(</td>
+        <td>Left parenthesis</td>
+        <td><a href="https://en.wikipedia.org/wiki/Left_parenthesis" title="Left parenthesis">(</a></td>
+        </tr>
+        <tr>
+        <td>41</td>
+        <td>29</td>
+        <td>51</td>
+        <td>101001</td>
+        <td>)</td>
+        <td>Right parenthesis</td>
+        <td><a href="https://en.wikipedia.org/wiki/Right_parenthesis" title="Right parenthesis">)</a></td>
+        </tr>
+        <tr>
+        <td>42</td>
+        <td>2A</td>
+        <td>52</td>
+        <td>101010</td>
+        <td>*</td>
+        <td>Asterisk</td>
+        <td><a href="https://en.wikipedia.org/wiki/Asterisk" title=Asterisk>*</a></td>
+        </tr>
+        <tr>
+        <td>43</td>
+        <td>2B</td>
+        <td>53</td>
+        <td>101011</td>
+        <td>+</td>
+        <td>Plus sign</td>
+        <td><a href="https://en.wikipedia.org/wiki/Plus_sign" title="Plus sign">+</a></td>
+        </tr>
+        <tr>
+        <td>44</td>
+        <td>2C</td>
+        <td>54</td>
+        <td>101100</td>
+        <td>,</td>
+        <td>Comma (punctuation)</td>
+        <td><a href="https://en.wikipedia.org/wiki/Comma_(punctuation)" title="Comma (punctuation)">,</a></td>
+        </tr>
+        <tr>
+        <td>45</td>
+        <td>2D</td>
+        <td>55</td>
+        <td>101101</td>
+        <td>-</td>
+        <td>Hyphen-minus</td>
+        <td><a href="https://en.wikipedia.org/wiki/Hyphen-minus" title=Hyphen-minus>-</a></td>
+        </tr>
+        <tr>
+        <td>46</td>
+        <td>2E</td>
+        <td>56</td>
+        <td>101110</td>
+        <td>.</td>
+        <td>Full stop</td>
+        <td><a href="https://en.wikipedia.org/wiki/Full_stop" title="Full stop">.</a></td>
+        </tr>
+        <tr>
+        <td>47</td>
+        <td>2F</td>
+        <td>57</td>
+        <td>101111</td>
+        <td>/</td>
+        <td>Slash (punctuation)</td>
+        <td><a href="https://en.wikipedia.org/wiki/Slash_(punctuation)" title="Slash (punctuation)">/</a></td>
+        </tr>
+        <tr>
+        <td>48</td>
+        <td>30</td>
+        <td>60</td>
+        <td>110000</td>
+        <td>0</td>
+        <td>0 (number)</td>
+        <td><a href="https://en.wikipedia.org/wiki/0_(number)" title="0 (number)">0</a></td>
+        </tr>
+        <tr>
+        <td>49</td>
+        <td>31</td>
+        <td>61</td>
+        <td>110001</td>
+        <td>1</td>
+        <td>1 (number)</td>
+        <td><a href="https://en.wikipedia.org/wiki/1_(number)" title="1 (number)">1</a></td>
+        </tr>
+        <tr>
+        <td>50</td>
+        <td>32</td>
+        <td>62</td>
+        <td>110010</td>
+        <td>2</td>
+        <td>2 (number)</td>
+        <td><a href="https://en.wikipedia.org/wiki/2_(number)" title="2 (number)">2</a></td>
+        </tr>
+        <tr>
+        <td>51</td>
+        <td>33</td>
+        <td>63</td>
+        <td>110011</td>
+        <td>3</td>
+        <td>3 (number)</td>
+        <td><a href="https://en.wikipedia.org/wiki/3_(number)" title="3 (number)">3</a></td>
+        </tr>
+        <tr>
+        <td>52</td>
+        <td>34</td>
+        <td>64</td>
+        <td>110100</td>
+        <td>4</td>
+        <td>4 (number)</td>
+        <td><a href="https://en.wikipedia.org/wiki/4_(number)" title="4 (number)">4</a></td>
+        </tr>
+        <tr>
+        <td>53</td>
+        <td>35</td>
+        <td>65</td>
+        <td>110101</td>
+        <td>5</td>
+        <td>5 (number)</td>
+        <td><a href="https://en.wikipedia.org/wiki/5_(number)" title="5 (number)">5</a></td>
+        </tr>
+        <tr>
+        <td>54</td>
+        <td>36</td>
+        <td>66</td>
+        <td>110110</td>
+        <td>6</td>
+        <td>6 (number)</td>
+        <td><a href="https://en.wikipedia.org/wiki/6_(number)" title="6 (number)">6</a></td>
+        </tr>
+        <tr>
+        <td>55</td>
+        <td>37</td>
+        <td>67</td>
+        <td>110111</td>
+        <td>7</td>
+        <td>7 (number)</td>
+        <td><a href="https://en.wikipedia.org/wiki/7_(number)" title="7 (number)">7</a></td>
+        </tr>
+        <tr>
+        <td>56</td>
+        <td>38</td>
+        <td>70</td>
+        <td>111000</td>
+        <td>8</td>
+        <td>8 (number)</td>
+        <td><a href="https://en.wikipedia.org/wiki/8_(number)" title="8 (number)">8</a></td>
+        </tr>
+        <tr>
+        <td>57</td>
+        <td>39</td>
+        <td>71</td>
+        <td>111001</td>
+        <td>9</td>
+        <td>9 (number)</td>
+        <td><a href="https://en.wikipedia.org/wiki/9_(number)" title="9 (number)">9</a></td>
+        </tr>
+        <tr>
+        <td>58</td>
+        <td>3A</td>
+        <td>72</td>
+        <td>111010</td>
+        <td>:</td>
+        <td>Colon (punctuation)</td>
+        <td><a href="https://en.wikipedia.org/wiki/Colon_(punctuation)" title="Colon (punctuation)">:</a></td>
+        </tr>
+        <tr>
+        <td>59</td>
+        <td>3B</td>
+        <td>73</td>
+        <td>111011</td>
+        <td>;</td>
+        <td>Semicolon</td>
+        <td><a href="https://en.wikipedia.org/wiki/Semicolon" title=Semicolon>;</a></td>
+        </tr>
+        <tr>
+        <td>60</td>
+        <td>3C</td>
+        <td>74</td>
+        <td>111100</td>
+        <td>&lt;</td>
+        <td>Less-than sign</td>
+        <td><a href="https://en.wikipedia.org/wiki/Less-than_sign" title="Less-than sign">&lt;</a></td>
+        </tr>
+        <tr>
+        <td>61</td>
+        <td>3D</td>
+        <td>75</td>
+        <td>111101</td>
+        <td>=</td>
+        <td>Equal sign</td>
+        <td><a href="https://en.wikipedia.org/wiki/Equal_sign" title="Equal sign">=</a></td>
+        </tr>
+        <tr>
+        <td>62</td>
+        <td>3E</td>
+        <td>76</td>
+        <td>111110</td>
+        <td>&gt;</td>
+        <td>Greater-than sign</td>
+        <td><a href="https://en.wikipedia.org/wiki/Greater-than_sign" title="Greater-than sign">&gt;</a></td>
+        </tr>
+        <tr>
+        <td>63</td>
+        <td>3F</td>
+        <td>77</td>
+        <td>111111</td>
+        <td>?</td>
+        <td>Question mark</td>
+        <td><a href="https://en.wikipedia.org/wiki/Question_mark" title="Question mark">?</a></td>
+        </tr>
+        <tr>
+        <td>64</td>
+        <td>40</td>
+        <td>100</td>
+        <td>1000000</td>
+        <td>@</td>
+        <td>@</td>
+        <td><a href="https://en.wikipedia.org/wiki/@" title="@">@</a></td>
+        </tr>
+        <tr>
+        <td>65</td>
+        <td>41</td>
+        <td>101</td>
+        <td>1000001</td>
+        <td>A</td>
+        <td>A</td>
+        <td><a href="https://en.wikipedia.org/wiki/A" title=A>A</a></td>
+        </tr>
+        <tr>
+        <td>66</td>
+        <td>42</td>
+        <td>102</td>
+        <td>1000010</td>
+        <td>B</td>
+        <td>B</td>
+        <td><a href="https://en.wikipedia.org/wiki/B" title=B>B</a></td>
+        </tr>
+        <tr>
+        <td>67</td>
+        <td>43</td>
+        <td>103</td>
+        <td>1000011</td>
+        <td>C</td>
+        <td>C</td>
+        <td><a href="https://en.wikipedia.org/wiki/C" title=C>C</a></td>
+        </tr>
+        <tr>
+        <td>68</td>
+        <td>44</td>
+        <td>104</td>
+        <td>1000100</td>
+        <td>D</td>
+        <td>D</td>
+        <td><a href="https://en.wikipedia.org/wiki/D" title=D>D</a></td>
+        </tr>
+        <tr>
+        <td>69</td>
+        <td>45</td>
+        <td>105</td>
+        <td>1000101</td>
+        <td>E</td>
+        <td>E</td>
+        <td><a href="https://en.wikipedia.org/wiki/E" title=E>E</a></td>
+        </tr>
+        <tr>
+        <td>70</td>
+        <td>46</td>
+        <td>106</td>
+        <td>1000110</td>
+        <td>F</td>
+        <td>F</td>
+        <td><a href="https://en.wikipedia.org/wiki/F" title=F>F</a></td>
+        </tr>
+        <tr>
+        <td>71</td>
+        <td>47</td>
+        <td>107</td>
+        <td>1000111</td>
+        <td>G</td>
+        <td>G</td>
+        <td><a href="https://en.wikipedia.org/wiki/G" title=G>G</a></td>
+        </tr>
+        <tr>
+        <td>72</td>
+        <td>48</td>
+        <td>110</td>
+        <td>1001000</td>
+        <td>H</td>
+        <td>H</td>
+        <td><a href="https://en.wikipedia.org/wiki/H" title=H>H</a></td>
+        </tr>
+        <tr>
+        <td>73</td>
+        <td>49</td>
+        <td>111</td>
+        <td>1001001</td>
+        <td>I</td>
+        <td>I</td>
+        <td><a href="https://en.wikipedia.org/wiki/I" title=I>I</a></td>
+        </tr>
+        <tr>
+        <td>74</td>
+        <td>4A</td>
+        <td>112</td>
+        <td>1001010</td>
+        <td>J</td>
+        <td>J</td>
+        <td><a href="https://en.wikipedia.org/wiki/J" title=J>J</a></td>
+        </tr>
+        <tr>
+        <td>75</td>
+        <td>4B</td>
+        <td>113</td>
+        <td>1001011</td>
+        <td>K</td>
+        <td>K</td>
+        <td><a href="https://en.wikipedia.org/wiki/K" title=K>K</a></td>
+        </tr>
+        <tr>
+        <td>76</td>
+        <td>4C</td>
+        <td>114</td>
+        <td>1001100</td>
+        <td>L</td>
+        <td>L</td>
+        <td><a href="https://en.wikipedia.org/wiki/L" title=L>L</a></td>
+        </tr>
+        <tr>
+        <td>77</td>
+        <td>4D</td>
+        <td>115</td>
+        <td>1001101</td>
+        <td>M</td>
+        <td>M</td>
+        <td><a href="https://en.wikipedia.org/wiki/M" title=M>M</a></td>
+        </tr>
+        <tr>
+        <td>78</td>
+        <td>4E</td>
+        <td>116</td>
+        <td>1001110</td>
+        <td>N</td>
+        <td>N</td>
+        <td><a href="https://en.wikipedia.org/wiki/N" title=N>N</a></td>
+        </tr>
+        <tr>
+        <td>79</td>
+        <td>4F</td>
+        <td>117</td>
+        <td>1001111</td>
+        <td>O</td>
+        <td>O</td>
+        <td><a href="https://en.wikipedia.org/wiki/O" title=O>O</a></td>
+        </tr>
+        <tr>
+        <td>80</td>
+        <td>50</td>
+        <td>120</td>
+        <td>1010000</td>
+        <td>P</td>
+        <td>P</td>
+        <td><a href="https://en.wikipedia.org/wiki/P" title=P>P</a></td>
+        </tr>
+        <tr>
+        <td>81</td>
+        <td>51</td>
+        <td>121</td>
+        <td>1010001</td>
+        <td>Q</td>
+        <td>Q</td>
+        <td><a href="https://en.wikipedia.org/wiki/Q" title=Q>Q</a></td>
+        </tr>
+        <tr>
+        <td>82</td>
+        <td>52</td>
+        <td>122</td>
+        <td>1010010</td>
+        <td>R</td>
+        <td>R</td>
+        <td><a href="https://en.wikipedia.org/wiki/R" title=R>R</a></td>
+        </tr>
+        <tr>
+        <td>83</td>
+        <td>53</td>
+        <td>123</td>
+        <td>1010011</td>
+        <td>S</td>
+        <td>S</td>
+        <td><a href="https://en.wikipedia.org/wiki/S" title=S>S</a></td>
+        </tr>
+        <tr>
+        <td>84</td>
+        <td>54</td>
+        <td>124</td>
+        <td>1010100</td>
+        <td>T</td>
+        <td>T</td>
+        <td><a href="https://en.wikipedia.org/wiki/T" title=T>T</a></td>
+        </tr>
+        <tr>
+        <td>85</td>
+        <td>55</td>
+        <td>125</td>
+        <td>1010101</td>
+        <td>U</td>
+        <td>U</td>
+        <td><a href="https://en.wikipedia.org/wiki/U" title=U>U</a></td>
+        </tr>
+        <tr>
+        <td>86</td>
+        <td>56</td>
+        <td>126</td>
+        <td>1010110</td>
+        <td>V</td>
+        <td>V</td>
+        <td><a href="https://en.wikipedia.org/wiki/V" title=V>V</a></td>
+        </tr>
+        <tr>
+        <td>87</td>
+        <td>57</td>
+        <td>127</td>
+        <td>1010111</td>
+        <td>W</td>
+        <td>W</td>
+        <td><a href="https://en.wikipedia.org/wiki/W" title=W>W</a></td>
+        </tr>
+        <tr>
+        <td>88</td>
+        <td>58</td>
+        <td>130</td>
+        <td>1011000</td>
+        <td>X</td>
+        <td>X</td>
+        <td><a href="https://en.wikipedia.org/wiki/X" title=X>X</a></td>
+        </tr>
+        <tr>
+        <td>89</td>
+        <td>59</td>
+        <td>131</td>
+        <td>1011001</td>
+        <td>Y</td>
+        <td>Y</td>
+        <td><a href="https://en.wikipedia.org/wiki/Y" title=Y>Y</a></td>
+        </tr>
+        <tr>
+        <td>90</td>
+        <td>5A</td>
+        <td>132</td>
+        <td>1011010</td>
+        <td>Z</td>
+        <td>Z</td>
+        <td><a href="https://en.wikipedia.org/wiki/Z" title=Z>Z</a></td>
+        </tr>
+        <tr>
+        <td>91</td>
+        <td>5B</td>
+        <td>133</td>
+        <td>1011011</td>
+        <td>[</td>
+        <td>Left square bracket</td>
+        <td><a href="https://en.wikipedia.org/wiki/Left_square_bracket" title="Left square bracket">[</a></td>
+        </tr>
+        <tr>
+        <td>92</td>
+        <td>5C</td>
+        <td>134</td>
+        <td>1011100</td>
+        <td>\</td>
+        <td>Backslash</td>
+        <td><a href="https://en.wikipedia.org/wiki/Backslash" title=Backslash>\</a></td>
+        </tr>
+        <tr>
+        <td>93</td>
+        <td>5D</td>
+        <td>135</td>
+        <td>1011101</td>
+        <td>]</td>
+        <td>Right square bracket</td>
+        <td><a href="https://en.wikipedia.org/wiki/Right_square_bracket" title="Right square bracket">]</a></td>
+        </tr>
+        <tr>
+        <td>94</td>
+        <td>5E</td>
+        <td>136</td>
+        <td>1011110</td>
+        <td>^</td>
+        <td>Caret</td>
+        <td><a href="https://en.wikipedia.org/wiki/Caret" title=Caret>^</a></td>
+        </tr>
+        <tr>
+        <td>95</td>
+        <td>5F</td>
+        <td>137</td>
+        <td>1011111</td>
+        <td>_</td>
+        <td>Underscore</td>
+        <td><a href="https://en.wikipedia.org/wiki/Underscore" title=Underscore>_</a></td>
+        </tr>
+        <tr>
+        <td>96</td>
+        <td>60</td>
+        <td>140</td>
+        <td>1100000</td>
+        <td>`</td>
+        <td>Grave accent</td>
+        <td><a href="https://en.wikipedia.org/wiki/Grave_accent" title="Grave accent">`</a></td>
+        </tr>
+        <tr>
+        <td>97</td>
+        <td>61</td>
+        <td>141</td>
+        <td>1100001</td>
+        <td>a</td>
+        <td>A</td>
+        <td><a href="https://en.wikipedia.org/wiki/A" title=A>a</a></td>
+        </tr>
+        <tr>
+        <td>98</td>
+        <td>62</td>
+        <td>142</td>
+        <td>1100010</td>
+        <td>b</td>
+        <td>B</td>
+        <td><a href="https://en.wikipedia.org/wiki/B" title=B>b</a></td>
+        </tr>
+        <tr>
+        <td>99</td>
+        <td>63</td>
+        <td>143</td>
+        <td>1100011</td>
+        <td>c</td>
+        <td>C</td>
+        <td><a href="https://en.wikipedia.org/wiki/C" title=C>c</a></td>
+        </tr>
+        <tr>
+        <td>100</td>
+        <td>64</td>
+        <td>144</td>
+        <td>1100100</td>
+        <td>d</td>
+        <td>D</td>
+        <td><a href="https://en.wikipedia.org/wiki/D" title=D>d</a></td>
+        </tr>
+        <tr>
+        <td>101</td>
+        <td>65</td>
+        <td>145</td>
+        <td>1100101</td>
+        <td>e</td>
+        <td>E</td>
+        <td><a href="https://en.wikipedia.org/wiki/E" title=E>e</a></td>
+        </tr>
+        <tr>
+        <td>102</td>
+        <td>66</td>
+        <td>146</td>
+        <td>1100110</td>
+        <td>f</td>
+        <td>F</td>
+        <td><a href="https://en.wikipedia.org/wiki/F" title=F>f</a></td>
+        </tr>
+        <tr>
+        <td>103</td>
+        <td>67</td>
+        <td>147</td>
+        <td>1100111</td>
+        <td>g</td>
+        <td>G</td>
+        <td><a href="https://en.wikipedia.org/wiki/G" title=G>g</a></td>
+        </tr>
+        <tr>
+        <td>104</td>
+        <td>68</td>
+        <td>150</td>
+        <td>1101000</td>
+        <td>h</td>
+        <td>H</td>
+        <td><a href="https://en.wikipedia.org/wiki/H" title=H>h</a></td>
+        </tr>
+        <tr>
+        <td>105</td>
+        <td>69</td>
+        <td>151</td>
+        <td>1101001</td>
+        <td>i</td>
+        <td>I</td>
+        <td><a href="https://en.wikipedia.org/wiki/I" title=I>i</a></td>
+        </tr>
+        <tr>
+        <td>106</td>
+        <td>6A</td>
+        <td>152</td>
+        <td>1101010</td>
+        <td>j</td>
+        <td>J</td>
+        <td><a href="https://en.wikipedia.org/wiki/J" title=J>j</a></td>
+        </tr>
+        <tr>
+        <td>107</td>
+        <td>6B</td>
+        <td>153</td>
+        <td>1101011</td>
+        <td>k</td>
+        <td>K</td>
+        <td><a href="https://en.wikipedia.org/wiki/K" title=K>k</a></td>
+        </tr>
+        <tr>
+        <td>108</td>
+        <td>6C</td>
+        <td>154</td>
+        <td>1101100</td>
+        <td>l</td>
+        <td>L</td>
+        <td><a href="https://en.wikipedia.org/wiki/L" title=L>l</a></td>
+        </tr>
+        <tr>
+        <td>109</td>
+        <td>6D</td>
+        <td>155</td>
+        <td>1101101</td>
+        <td>m</td>
+        <td>M</td>
+        <td><a href="https://en.wikipedia.org/wiki/M" title=M>m</a></td>
+        </tr>
+        <tr>
+        <td>110</td>
+        <td>6E</td>
+        <td>156</td>
+        <td>1101110</td>
+        <td>n</td>
+        <td>N</td>
+        <td><a href="https://en.wikipedia.org/wiki/N" title=N>n</a></td>
+        </tr>
+        <tr>
+        <td>111</td>
+        <td>6F</td>
+        <td>157</td>
+        <td>1101111</td>
+        <td>o</td>
+        <td>O</td>
+        <td><a href="https://en.wikipedia.org/wiki/O" title=O>o</a></td>
+        </tr>
+        <tr>
+        <td>112</td>
+        <td>70</td>
+        <td>160</td>
+        <td>1110000</td>
+        <td>p</td>
+        <td>P</td>
+        <td><a href="https://en.wikipedia.org/wiki/P" title=P>p</a></td>
+        </tr>
+        <tr>
+        <td>113</td>
+        <td>71</td>
+        <td>161</td>
+        <td>1110001</td>
+        <td>q</td>
+        <td>Q</td>
+        <td><a href="https://en.wikipedia.org/wiki/Q" title=Q>q</a></td>
+        </tr>
+        <tr>
+        <td>114</td>
+        <td>72</td>
+        <td>162</td>
+        <td>1110010</td>
+        <td>r</td>
+        <td>R</td>
+        <td><a href="https://en.wikipedia.org/wiki/R" title=R>r</a></td>
+        </tr>
+        <tr>
+        <td>115</td>
+        <td>73</td>
+        <td>163</td>
+        <td>1110011</td>
+        <td>s</td>
+        <td>S</td>
+        <td><a href="https://en.wikipedia.org/wiki/S" title=S>s</a></td>
+        </tr>
+        <tr>
+        <td>116</td>
+        <td>74</td>
+        <td>164</td>
+        <td>1110100</td>
+        <td>t</td>
+        <td>T</td>
+        <td><a href="https://en.wikipedia.org/wiki/T" title=T>t</a></td>
+        </tr>
+        <tr>
+        <td>117</td>
+        <td>75</td>
+        <td>165</td>
+        <td>1110101</td>
+        <td>u</td>
+        <td>U</td>
+        <td><a href="https://en.wikipedia.org/wiki/U" title=U>u</a></td>
+        </tr>
+        <tr>
+        <td>118</td>
+        <td>76</td>
+        <td>166</td>
+        <td>1110110</td>
+        <td>v</td>
+        <td>V</td>
+        <td><a href="https://en.wikipedia.org/wiki/V" title=V>v</a></td>
+        </tr>
+        <tr>
+        <td>119</td>
+        <td>77</td>
+        <td>167</td>
+        <td>1110111</td>
+        <td>w</td>
+        <td>W</td>
+        <td><a href="https://en.wikipedia.org/wiki/W" title=W>w</a></td>
+        </tr>
+        <tr>
+        <td>120</td>
+        <td>78</td>
+        <td>170</td>
+        <td>1111000</td>
+        <td>x</td>
+        <td>X</td>
+        <td><a href="https://en.wikipedia.org/wiki/X" title=X>x</a></td>
+        </tr>
+        <tr>
+        <td>121</td>
+        <td>79</td>
+        <td>171</td>
+        <td>1111001</td>
+        <td>y</td>
+        <td>Y</td>
+        <td><a href="https://en.wikipedia.org/wiki/Y" title=Y>y</a></td>
+        </tr>
+        <tr>
+        <td>122</td>
+        <td>7A</td>
+        <td>172</td>
+        <td>1111010</td>
+        <td>z</td>
+        <td>Z</td>
+        <td><a href="https://en.wikipedia.org/wiki/Z" title=Z>z</a></td>
+        </tr>
+        <tr>
+        <td>123</td>
+        <td>7B</td>
+        <td>173</td>
+        <td>1111011</td>
+        <td>{</td>
+        <td>Left curly bracket</td>
+        <td><a href="https://en.wikipedia.org/wiki/Left_curly_bracket" title="Left curly bracket">{</a></td>
+        </tr>
+        <tr>
+        <td>124</td>
+        <td>7C</td>
+        <td>174</td>
+        <td>1111100</td>
+        <td>|</td>
+        <td>Vertical bar</td>
+        <td><a href="https://en.wikipedia.org/wiki/Vertical_bar" title="Vertical bar">|</a></td>
+        </tr>
+        <tr>
+        <td>125</td>
+        <td>7D</td>
+        <td>175</td>
+        <td>1111101</td>
+        <td>}</td>
+        <td>Right curly bracket</td>
+        <td><a href="https://en.wikipedia.org/wiki/Right_curly_bracket" title="Right curly bracket">}</a></td>
+        </tr>
+        <tr>
+        <td>126</td>
+        <td>7E</td>
+        <td>176</td>
+        <td>1111110</td>
+        <td>~</td>
+        <td>~</td>
+        <td><a href="https://en.wikipedia.org/wiki/~" title="~">~</a></td>
+        </tr>
+        <tr class="non-print">
+        <td>127</td>
+        <td>7F</td>
+        <td>177</td>
+        <td>1111111</td>
+        <td>DEL</td>
+        <td>Delete character</td>
+        <td><a href="https://en.wikipedia.org/wiki/Delete_character" title="Delete character">DEL</a></td>
+        </tr>
+        </table>
+        </div>
+    </div>
+
+    <script>
+    // Toggle between showing and hiding the sidebar when clicking the menu icon
+    var mySidebar = document.getElementById("mySidebar");
+    var sidebarDisplay = mySidebar.style.display;
+    
+    function w3_open() 
+    {
+        
+        if (mySidebar.style.display === 'block') 
+        {
+            mySidebar.style.display = 'none';
+        } 
+        else 
+        {
+            mySidebar.style.display = 'block';
+        }
+    }
+    // Close the sidebar with the close button
+    function w3_close() {
+        mySidebar.style.display = "none";
+    }
+    
+    
+    //jQuery to close nav bar in mobile view
+    $(document).ready(function () 
+    {
+        $('body').click(function() 
+        {
+            if(sidebarDisplay === 'none')
+            {
+            mySidebar.style.display = 'none';
+            }
+        });
+    
+        $('#bars').click(function(event)
+        {
+            event.stopPropagation();
+        });
+    });
+    
+    // Scrolling
+    window.onscroll = function() {scrolling()};
+    function scrolling() {
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        var scrolled = (winScroll / height) * 100;
+        document.getElementById("myBar").style.width = scrolled + "%";
+    }
+    </script>
+
+</body>
+
+</html>

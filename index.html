@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<title>Light Comet</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Favicon -->
+<link rel="icon"type="image/png" href="favicon-fighter-jet.ico">
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">  W3 Schools CSS Template
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway"> Alternative Font
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> Special CSS -->
+
+<!-- Font Awesome -->
+<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+<!-- Font -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet"/>
+<!-- W3.CSS -->
+<link rel="stylesheet" href="w3.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Open Sans", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+/* Full height image header */
+.bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("aurora.jpeg");
+    min-height: 100%;
+}
+.w3-bar .w3-button {
+    padding: 16px;
+}
+.w3-top {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: #f1f1f1;
+}
+/* The progress container (grey background) */
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background: #ccc;
+}
+/* The progress bar (scroll indicator) */
+.progress-bar {
+  height: 8px;
+  background: #4caf50;
+  width: 0%;
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+      <div class="progress-container">
+          <div class="progress-bar" id="myBar"></div>
+      </div> 
+    <a href="index" class="w3-bar-item w3-button w3-wide">Light Comet</a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+        <a href="converter" class="w3-bar-item w3-button"><i class ="fas fa-dollar-sign"></i> CONVERTER</a>
+      <a href="InitialD" class="w3-bar-item w3-button"><i class ="fas fa-car"></i> INITIAL D</a>
+      <a href="ascii" class="w3-bar-item w3-button"><i class ="fas fa-table"></i> ASCII TABLE</a>
+      <a href="index#about" class="w3-bar-item w3-button text-black"><i class="fas fa-info-circle"></i> ABOUT</a>
+      <a href="index#skills" class="w3-bar-item w3-button w3-text-black"><i class="fas fa-code"></i> SKILLS</a>
+      <a href="index#contact" class="w3-bar-item w3-button w3-text-black"><i class="far fa-envelope"></i> CONTACT</a>
+    </div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large" onclick="w3_open()" id="bars">
+      <i class="fas fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-right w3-hide-large" style="display:none;right:0" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">&#10006;&#xFE0E;</a>
+  <a href="converter" onclick="w3_close()"class="w3-bar-item w3-button">CONVERTER</a>
+  <a href="InitialD" onclick="w3_close()" class="w3-bar-item w3-button">INITIAL D</a>
+  <a href="ascii" onclick="w3_close()" class="w3-bar-item w3-button"> ASCII TABLE</a>
+  <a href="index#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+  <a href="index#skills" onclick="w3_close()" class="w3-bar-item w3-button">SKILLS</a>
+  <a href="index#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-left w3-text-white" style="padding:48px">
+    <span class="w3-jumbo w3-hide-small">GT-R</span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium">GT-R</span><br>
+    <span class="w3-large">Experimenting</span>
+    <p><a href="#about" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Learn more and start today</a></p>
+  </div> 
+</header>
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px" id="about">
+  <h3 class="w3-center">ABOUT THE COMPANY</h3>
+  <p class="w3-center w3-large">Key features of my company</p>
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    
+    <div class="w3-quarter">
+      <i class="fas fa-bed w3-margin-bottom w3-jumbo w3-center"></i>
+      <p class="w3-large">Sleep</p>
+
+    </div>
+    <div class="w3-quarter">
+      <i class="fas fa-coffee w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Coffee</p>
+
+    </div>
+    <div class="w3-quarter">
+      <i class="fas fa-space-shuttle w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Explore</p>
+
+    </div>
+    <div class="w3-quarter">
+      <i class="fab fa-playstation w3-margin-bottom w3-jumbo"></i>
+      <p class="w3-large">Play</p>
+
+    </div>
+  </div>
+</div>
+
+<!-- Skills Section -->
+<div class="w3-container w3-light-grey w3-padding-64" id="skills">
+  <div class="w3-row-padding">
+    <div class="w3-col m3">
+      <h3>My Skills.</h3>
+    </div>
+    <div class="w3-col m9">
+
+      <p class="w3-wide"><i class="fas fa-camera fa-2x w3-margin-right"></i>Photography</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:80%">80%</div>
+      </div>
+
+      <p class="w3-wide"><i class="fas fa-desktop fa-2x w3-margin-right"></i>Web Design</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:80%">80%</div>
+      </div>
+
+      <p class="w3-wide"><i class="far fa-file-excel fa-2x w3-margin-right"></i>Excel</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:85%">85%</div>
+      </div>
+
+      <p class="w3-wide"><i class="fab fa-html5 fa-2x w3-margin-right"></i>HTML</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:80%">80%</div>
+      </div>
+
+      <p class="w3-wide"><i class="fab fa-css3-alt fa-2x w3-margin-right"></i>CSS 3</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:70%">70%</div>
+      </div>
+
+      <p class="w3-wide"><i class="fab fa-js fa-2x w3-margin-right"></i>JavaScript</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:70%">70%</div>
+      </div>
+
+      <p class="w3-wide"><i class="fab fa-node-js fa-2x w3-margin-right"></i>NodeJS / Electron</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:70%">70%</div>
+      </div>
+
+      <p class="w3-wide"><i class="fas fa-code fa-2x w3-margin-right"></i>C / C++ / C#</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:70%">70%</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- Contact Section -->
+<div class="w3-row w3-container w3-white" style="padding:128px 16px" id="contact">
+
+    <div class="w3-half w3-center">
+        <h3 class="w3-center">CONTACT</h3>
+        <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
+    </div>
+
+    <div class="w3-half w3-center">
+        <p><i class="far fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email </p>
+        <br>
+        <form>
+          <p><input class="w3-input" type="text" placeholder="Name" required name="Name"></p>
+          <p><input class="w3-input" type="text" placeholder="Email" required name="Email"></p>
+          <p><input class="w3-input" type="text" placeholder="Subject" required name="Subject"></p>
+          <p><textarea class="w3-input" type="text" placeholder="Message" required name="Message"></textarea>
+          <p>
+            <button class="w3-button w3-black" type="submit">
+              <i class="fas fa-paper-plane"></i> SEND MESSAGE
+            </button>
+          </p>
+        </form>
+    </div>
+
+</div>
+
+
+
+
+<!-- Footer -->
+<footer class="w3-center w3-dark-gray w3-padding-64">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fas  fa-arrow-up w3-margin-right"></i>Back to the top</a>
+  <p>Powered by Light Comet with thanks to <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+ 
+<script>
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+var sidebarDisplay = mySidebar.style.display;
+function w3_open() 
+{
+  
+    if (mySidebar.style.display === 'block') 
+    {
+        mySidebar.style.display = 'none';
+    } 
+    else 
+    {
+        mySidebar.style.display = 'block';
+    }
+}
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+//jQuery to close nav bar in mobile view
+$(document).ready(function () 
+{
+  $('body').click(function() 
+    {
+      if(sidebarDisplay === 'none')
+      {
+        mySidebar.style.display = 'none';
+      }
+    });
+  $('#bars').click(function(event)
+  {
+     event.stopPropagation(); 
+  });
+});
+// Scrolling
+window.onscroll = function() {scrolling()};
+function scrolling() {
+  var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  var scrolled = (winScroll / height) * 100;
+  document.getElementById("myBar").style.width = scrolled + "%";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,100 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <title>Light Comet</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Favicon/Small Icon At The Browser Tab -->
+    <link rel="icon" href="https://2.bp.blogspot.com/-vtz-QCOB_P8/WdOFKHJtKRI/AAAAAAAAADs/jTiFKWjTPSI9ERC3v11o7p6uFJQ6gkGrACLcBGAs/s1600/E.png" type="image/gif" sizes="16x16">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600,700" rel="stylesheet"/>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- CSS & JavaScript -->
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>    
+    </head>
+
+
+    <body id="body" class="light-mode">
+
+    <nav id="navbar" class="navbar">
+            <a href="index.html" style="display:inline-block" class="active">Home</a>
+            <a href="InitialD.html" style="display:inline-block">Initial D</a>
+            <a href="ascii.html" style="display:inline-block">ASCII Code</a>
+            <a href="about.html" style="display:inline-block">About</a>
+            <a href="javascript:void(0);" class="icon" onclick="navigation()">&#9776;</a>
+            <div id="dark-mode-nav">
+                <p id="darkmode" style="text-align:right;display:inline-block;">Dark Mode : Off</p>
+                <button id="darkmodeButton" type="button" onclick="toggleDarkLight()" title="On/Off Dark Mode">🌙</button>
+            </div>
+    </nav>
+    
+    <h1 align="center" style="font-weight:bold">Conversion Table</h1>
+    <p align="center">Convert between Singapore Dollars, Japanese Yen and New Taiwan Dollars</p>
+
+    <form oninput="conversion()" class="conversion">
+    <table style="width:100%; overflow-x:auto;">
+    <tr>
+        <th>Singapore Dollars</th>
+        <th>Japanese Yen</th>
+        <th>New Taiwan Dollars</th>
+    </tr>
+    <tr>
+    <td><input type="number" id="sgd1" placeholder="Enter a number"></td>
+    <td><output id="jpy1"></output></td>
+    <td><output id="twd1"></output></td>
+    </tr>
+
+    <tr>
+        <th>Singapore Dollars</th>
+        <th>Japanese Yen</th>
+        <th>New Taiwan Dollars</th>
+    </tr>
+    <tr>
+    <td><output id="sgd2"></output></td>
+    <td><input type="number" id="jpy2" placeholder="Enter a number"></td>
+    <td><output id="twd2"></output></td>
+    </tr>
+
+    <tr>
+        <th>Singapore Dollars</th>
+        <th>Japanese Yen</th>
+        <th>New Taiwan Dollars</th>
+    </tr>
+    <tr>
+    <td><output id="sgd3"></output></td>
+    <td><output id="jpy3"></output></td>
+    <td><input type="number" id="twd3" placeholder="Enter a number"></td>
+    </tr>
+
+    </table>
+
+    <button type="button" id="resetButton" onclick="reset();conversion();" title="Clears all the input values">Reset</button>
+    </form>
+
+    <!--
+    <h2 class="initialD">Initial D Techniques/Theories</h2>
+        <dt class="initialD">Ryosuke's FC3S vs Rin's R32 (Fifth Stage)</dt>
+        <dd class="initialD">- FC3S climb slope like a bank after being pushed out of line by R32 to avoid hitting curb</dd>
+        <dd class="initialD">- FC3S's high speed cornering entry releases side G-Force to absorb impact from side press by R32</dd>
+        <dd class="initialD">- FC3S braking while being side pressed by R32 to allow R32 to slide forward and understeer towards the railing, and using oversteer to cut the line of R32</dd>
+        <dt class="initialD">Keisuke's FD3S vs Go's NSX (Fifth Stage)</dt>
+        <dd class="initialD">- Uphill battles are usually turbo vs turbo, with exception to NSX due to its large displacement NA engine mounted in the center of chassis</dd>
+        <dd class="initialD">- This allows NSX to have good cornering speed due to mid engine and faster acceleration out of corner due to NA engine's instant torque</dd>
+        <dd class="initialD">- Keisuke's special training allow him to not run at full throttle but control and make it appear to be running at full throttle</dd>
+        <dd class="initialD">- This allows for better tire management as the FD3S is lighter</dd>
+        <dt class="initialD">Keisuke's FD3S vs Hideo's Supra (Fifth Stage)</dt>
+        <dd class="initialD">- </dd>
+        <dt class="initialD">Takumi's AE86 vs Hiroya's S15 (Fifth Stage)</dt>
+        <dd class="initialD">- </dd>
+        <dd class="initialD"> TO BE CONTINUED</dd>
+    -->
+
+    </body>
+    <!-- End of HTML -->
+    </html>
