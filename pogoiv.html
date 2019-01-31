@@ -49,6 +49,34 @@ body, html {
   background: #4caf50;
   width: 0%;
 }
+
+.autocomplete {
+  position: relative;
+  display: block;
+}
+
+.autocomplete-items {
+  border: 1px solid #d4d4d4;
+  /*position the autocomplete items to be the same width as the container:*/
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #fff; 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+}
 </style>
 <body>
 
@@ -94,10 +122,22 @@ body, html {
         <h1 class="w3-center" style="font-weight:bold">Pokemon Go IV Calculator</h1>
 
           
-        <div class="w3-container">
-            <input class="w3-input w3-border w3-round" id="cpValue" placeholder ="CP" type="number">
-            <input class="w3-input w3-border w3-round" id="hpValue" placeholder ="HP"type="number">
-            <input class="w3-input w3-border w3-round" id="stardustValue" placeholder ="Stardust Value" type="number">
+        <div class="w3-container autocomplete w3-padding">
+            <input class="w3-input w3-border w3-round" id="pokemon" placeholder ="Pokemon" type="text">
+        </div>
+        <div class="w3-row-padding">
+            <div class="w3-third">
+                <input class="w3-input w3-border w3-round" id="cp" placeholder ="CP" type="number">
+            </div>
+            <div class="w3-third">
+                <input class="w3-input w3-border w3-round" id="hp" placeholder ="HP"type="number">
+            </div>
+            <div class="w3-third">
+                    <input class="w3-input w3-border w3-round" id="stardust" placeholder ="Stardust" type="number">
+            </div>
+        </div>
+        <div class="w3-container w3-center w3-padding">
+            <button class="w3-button w3-white w3-border w3-border-grey">Calculate</button>
         </div>
 </div>
 
